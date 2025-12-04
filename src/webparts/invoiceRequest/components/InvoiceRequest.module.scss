@@ -1,0 +1,274 @@
+@use "sass:map";
+
+$primary: #0f6ab4;
+$primary-hover: #0e5e9d;
+$muted: #6b6b6b;
+$bg: #ffffff;
+$card-bg: #fbfbfb;
+$border: #e6e6e6;
+$radius: 6px;
+$gap: 14px;
+
+.ms-SPLegacyFabricBlock {
+    display: flex !important;
+    max-width: 85% !important;
+    margin: auto !important;
+}
+
+#formWrapper {
+    scroll-margin-top: 120px;
+}
+
+.invoiceRequest {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #222;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    margin: auto;
+
+    .titleWrapper {
+        text-align: center;
+        margin: 3rem 0 0;
+
+        h5 {
+            margin-top: 0;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .invoiceImage {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    h2 {
+        margin: 0 0 14px 0;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #111;
+    }
+
+    .formWrap {
+        background: $bg;
+        margin-bottom: 18px;
+        padding-top: 3rem;
+    }
+
+    form.grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $gap;
+
+        & .full {
+            grid-column: 1 / -1;
+        }
+
+        label.field {
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            color: $muted;
+            gap: 6px;
+
+            .fieldLabel {
+                font-size: 12px;
+                color: #333;
+                margin-bottom: 3px;
+                font-weight: 300;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="date"],
+            input[type="tel"],
+            select,
+            textarea {
+                height: 36px;
+                padding: 8px 10px;
+                border: 1px solid $border;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 14px;
+                box-sizing: border-box;
+            }
+
+            textarea {
+                min-height: 84px;
+                resize: vertical;
+                padding-top: 10px;
+            }
+
+            .small {
+                font-size: 12px;
+                color: $muted;
+            }
+        }
+
+        .colSpan2 {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $gap;
+        }
+
+        .colSpan3 {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: $gap;
+
+            label.field {
+                margin: 0;
+            }
+        }
+
+        .actions {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            margin-top: 6px;
+
+            button {
+                min-width: 120px;
+                height: 40px;
+                border-radius: 6px;
+                border: none;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            .primary {
+                background: $primary;
+                color: #fff;
+                box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+            }
+            .primary:hover {
+                background: $primary-hover;
+            }
+
+            .secondary {
+                background: transparent;
+                color: $primary;
+                border: 1px solid $primary;
+            }
+
+            .danger {
+                background: #fff5f5;
+                color: #c23a3a;
+                border: 1px solid #f2c6c6;
+            }
+        }
+    }
+
+    .listWrap {
+        display: grid;
+        gap: 12px;
+        margin: 1rem 0 2rem;
+        max-height: 350px;
+        overflow-y: scroll;
+        padding-bottom: 1rem;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $card-bg;
+        border: 1px solid $border;
+        padding: 12px 14px;
+        border-radius: 8px;
+        box-shadow: none;
+
+        .cardLeft {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .avatar {
+                width: 44px;
+                height: 44px;
+                border-radius: 6px;
+                background: linear-gradient(
+                    90deg,
+                    rgba(15, 106, 180, 0.12),
+                    rgba(15, 106, 180, 0.08)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary;
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            .meta {
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #111;
+                }
+                .sub {
+                    font-size: 13px;
+                    color: $muted;
+                    margin-top: 2px;
+                }
+            }
+        }
+
+        .cardRight {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+
+            .price {
+                font-size: 15px;
+                font-weight: 700;
+                color: #222;
+            }
+
+            .controls {
+                display: flex;
+                gap: 8px;
+
+                button {
+                    height: 32px;
+                    min-width: 32px;
+                    border-radius: 6px;
+                    border: 1px solid $border;
+                    background: transparent;
+                    cursor: pointer;
+                    font-size: 13px;
+                }
+
+                .edit {
+                    color: $primary;
+                    border-color: rgba(15, 106, 180, 0.18);
+                }
+                .delete {
+                    color: #c23a3a;
+                    border-color: rgba(194, 58, 58, 0.12);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        form.grid {
+            grid-template-columns: 1fr;
+            .colSpan2 {
+                grid-template-columns: 1fr;
+            }
+            .colSpan3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

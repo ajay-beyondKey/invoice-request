@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "invoice-request-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/invoiceRequest/InvoiceRequestWebPart.js",
+          "manifest": "./src/webparts/invoiceRequest/InvoiceRequestWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "InvoiceRequestWebPartStrings": "lib/webparts/invoiceRequest/loc/{locale}.js"
+  }
+}
