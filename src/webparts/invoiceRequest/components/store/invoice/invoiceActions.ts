@@ -18,7 +18,6 @@ import { invoiceService } from "../../services/invoiceService";
 
 export const fetchInvoices = () => async (dispatch: Dispatch) => {
     dispatch({ type: FETCH_INVOICES_REQUEST });
-    console.log("invoiceService ==>", await (invoiceService as any).getAll());
 
     try {
         const res =
@@ -26,11 +25,7 @@ export const fetchInvoices = () => async (dispatch: Dispatch) => {
                 ? await (invoiceService as any).getAll()
                 : [];
 
-        console.log("res==>", res);
-
         dispatch({ type: FETCH_INVOICES_SUCCESS, payload: { items: res } });
-
-        console.log("res 11==>", res);
     } catch (err: any) {
         dispatch({
             type: FETCH_INVOICES_FAILURE,

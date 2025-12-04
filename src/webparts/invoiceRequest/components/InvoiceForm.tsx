@@ -72,9 +72,6 @@ const InvoiceForm: React.FC<IProps> = ({
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        console.log("form =>", form);
-        console.log("file =>", file);
-
         try {
             setUploading(true);
             if (editingItem && editingItem.Id) {
